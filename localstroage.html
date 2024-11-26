@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            
+            
+        }
+        h1{
+            font-size: 40px;
+            font-weight: 900;
+            text-align: center;
+            
+}
+#username{
+width: 20%;
+margin: auto;
+padding: 15px 20px;
+border-radius: 20px;
+
+}
+#active{
+    width: 10%;
+    margin: auto;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color:plum;
+    margin-top: 10px;
+}
+#active:hover{
+    background-image: linear-gradient(red 20%,yellow 20%,green 20%);
+}
+#removal{
+    width: 10%;
+    margin: auto;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: purple;
+    margin-top: 10px;
+}
+#removal:hover{
+    background-image: linear-gradient(rgba 20%,yellow 20%,green 20%);
+}
+ 
+
+    </style>
+</head>
+<body>
+    <h1>hello! Good evening Dear <span id="naming">kajal</span></h1>
+    <input type="text" placeholder="enter your name" id="username">
+    <button id="active">click me!</button>
+    <button id="removal">remove data</button>
+
+    <script>
+let namevariable=document.getElementById('naming')
+let uservariable=document.getElementById('username')
+let buttonvariable=document.getElementById('active')
+let removevariable=document.getElementById('removal')
+buttonvariable.addEventListener('click',set)
+function set() {
+    const value=uservariable.value
+    localStorage.setItem("name",value);
+    location.reload()
+    
+}
+
+window.addEventListener('load',loading)
+function loading() {
+    const xyz=localStorage.getItem("name")
+    namevariable.innerText=xyz;
+    
+}
+removevariable.addEventListener('click',deletion)
+function deletion() {
+    const abc=localStorage.removeItem("name")
+    namevariable.innerText=abc
+
+}
+    </script>
+</body>
+</html>
